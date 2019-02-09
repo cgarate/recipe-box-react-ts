@@ -1,35 +1,14 @@
-import { uuid } from 'uuid/v1';
-import { ADD_RECIPE_BOX, IPayloadIngredient } from "./recipeBox.actions";
+import { combineReducers } from "redux";
+import * as uuid from "uuid";
+import { ADD_RECIPE_BOX } from "./recipeBox.actions";
+import { Action, Recipe } from "./store.types";
 
-interface Ingredient {
-  quantity?: number;
-  unit?: string;
-  name: string;
-}
+const { v1 } = uuid;
 
-interface Recipe {
-  id: string;
-  ingredients?: Ingredient[];
-  instructions: string;
-  rating: number | null;
-  title: string;
-  visible: boolean;
-}
-
-interface InitialState {
-  recipes: Recipe[];
-}
-
-interface Action {
-  type: string;
-  payload: IPayloadIngredient | {};
-}
-
-const createNewRecipe = () => {
-  // TODO: replace for UUID
-  const uuid = "abc123";
+const createNewRecipe = (): Recipe => {
+  const uID = v1();
   return {
-    id: uuid,
+    id: uID,
     ingredients: [],
     instructions: "",
     rating: null,
@@ -38,28 +17,19 @@ const createNewRecipe = () => {
   };
 };
 
-export const storeModel = {
-  recipes: [
-    {
-      id: "1",
-      ingredients: [],
-      instructions: "",
-      rating: null,
-      title: "",
-      visible: true,
-    },
-  ],
-};
-
-const initialState = {
-  recipes: [],
-};
-
-const recipeBoxApp = (state: InitialState = initialState, action: Action) => {
+// Notice the way we set the default value for the state. Using assertion in typescript to sssign the type.
+// Syntax is: value 'as' type
+const recipes = (state = [] as Recipe[], action: Action): Recipe[] => {
   switch (action.type) {
     case ADD_RECIPE_BOX:
-      return { recipes: [...state.recipes, createNewRecipe()] };
+      return [...state, createNewRecipe()];
     default:
-      return state
+      return state;
   }
 };
+
+const recipeBoxApp = combineReducers({
+  recipes,
+});
+
+export default recipeBoxApp;

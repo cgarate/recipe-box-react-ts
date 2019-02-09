@@ -1,16 +1,17 @@
 import * as React from "react";
+import LinkContainer from './Link';
 
-interface IProps {
-  children?: JSX.Element | JSX.Element[];
-}
-
-export const Header = (props: IProps) => {
+export const Header = () => {
   return (
     <nav>
       <div>Recipe Box</div>
       <div>
-        <a onClick={event => console.log(event.target)}>Add New Recipe Card</a>
+        <LinkContainer>
+          Add New Recipe Card
+        </LinkContainer>
       </div>
     </nav>
   );
 };
+
+
