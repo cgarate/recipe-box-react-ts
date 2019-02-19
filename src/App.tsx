@@ -1,15 +1,17 @@
 import * as React from "react";
-import { Card } from "./components/Card";
+import { StyledCard } from "./components/Card";
 import { Header } from "./components/Header";
-// import { theme, ThemeProvider } from './styles/theme';
+import { theme, ThemeProvider } from "./theme";
 
 class App extends React.Component {
   public render() {
     return (
-      <div>
-        <Header />
-        <Card title="Receta One" />
-      </div>
+      <ThemeProvider theme={theme}>
+        <div>
+          <Header />
+          <StyledCard p={2} bg='trafficOrange' title="Receta One" />
+        </div>
+      </ThemeProvider>
     );
   }
 }
