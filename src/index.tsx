@@ -6,12 +6,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import App from "./App";
 import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
-import recipeBoxApp from "./store/recipeBox.reducers";
+import rootReducer from "./store/recipeBox.reducers";
 
 const middleware: [] = [];
 
 const store = createStore(
-  recipeBoxApp,
+  rootReducer,
   composeWithDevTools(applyMiddleware(...middleware)),
 );
 

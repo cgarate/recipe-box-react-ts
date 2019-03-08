@@ -9,7 +9,7 @@ export interface IPayloadIngredient {
   ingredient: string;
 }
 
-export interface Recipe {
+export interface RecipeType {
   id: string;
   ingredients?: Ingredient[];
   instructions: string;

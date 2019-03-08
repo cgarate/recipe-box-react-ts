@@ -1,6 +1,6 @@
 import * as React from "react";
-import { StyledCard } from "./components/Card";
 import { Header } from "./components/Header";
+import Recipes from './components/recipes';
 import { theme, ThemeProvider } from "./theme";
 
 class App extends React.Component {
@@ -9,7 +9,7 @@ class App extends React.Component {
       <ThemeProvider theme={theme}>
         <main>
           <Header />
-          <StyledCard p={2} bg='trafficOrange' title="Receta One" />
+          <Recipes />
         </main>
       </ThemeProvider>
     );
