@@ -7,10 +7,10 @@ class App extends React.Component {
   public render() {
     return (
       <ThemeProvider theme={theme}>
-        <div>
+        <main>
           <Header />
           <StyledCard p={2} bg='trafficOrange' title="Receta One" />
-        </div>
+        </main>
       </ThemeProvider>
     );
   }
