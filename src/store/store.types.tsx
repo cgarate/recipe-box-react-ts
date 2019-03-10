@@ -1,24 +1,24 @@
-export interface Ingredient {
+export interface IngredientType {
   quantity?: number;
   unit?: string;
   name: string;
 }
 
-export interface IPayloadIngredient {
+export interface PayloadIngredientType {
   id: string;
   ingredient: string;
 }
 
 export interface RecipeType {
   id: string;
-  ingredients?: Ingredient[];
+  ingredients: IngredientType[];
   instructions: string;
   rating: number | null;
   title: string;
   visible: boolean;
 }
 
-export interface Action {
+export interface ActionType {
   type: string;
-  payload?: IPayloadIngredient | {};
+  payload?: PayloadIngredientType | {};
 }

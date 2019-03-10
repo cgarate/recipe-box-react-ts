@@ -1,27 +1,30 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
 
 import { addRecipeBox } from "../store/recipeBox.actions";
 
 interface Props {
-  onClick: () => void;
+  addRecipeBox: () => void;
   children: React.ReactNode;
 };
 
-const Link = ({ onClick, children }: Props) => {
+// tslint:disable: no-shadowed-variable
+const Link = ({ addRecipeBox, children }: Props) => {
   return (
     <span>
-      <a onClick={onClick}>{children}</a>
+      <a onClick={addRecipeBox}>{children}</a>
     </span>
   );
 };
 
 // Here I spent a bunch of time trying to figure out how to type dispatch.
 // Turns out the type should come from redux and not react-redux
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onClick: () => dispatch(addRecipeBox()),
-});
+// const mapDispatchToProps = (dispatch: Dispatch) => ({
+//   addRecipeBox: () => dispatch(addRecipeBox()),
+// });
+
+// Commenting the code above and using the object form instead, leaving that as a future reference
+const mapDispatchToProps = {addRecipeBox}
 
 const LinkContainer = connect(
   null,
