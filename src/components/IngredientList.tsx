@@ -1,7 +1,10 @@
 import * as React from "react";
 import { IngredientType } from "../store/store.types";
+import { borderRadius } from '../styles/border-radius/index';
+import { spacing } from '../styles/spacing/index';
 import { BoxUIContainer } from "./BoxUIContainer";
-import Ingredient from "./Ingredient";
+import { Flexbox } from './Flexbox';
+import { Ingredient } from "./Ingredient";
 
 interface Props {
   ingredients: IngredientType[];
@@ -9,17 +12,23 @@ interface Props {
 
 const IngredientList = ({ ingredients }: Props) => {
   return (
-    <BoxUIContainer>
-      <ul>
+    <BoxUIContainer p={spacing.two} >
+      <Flexbox flexDirection='column' justifyContent='flex-start'>
         {ingredients.map((ingredient, index) => {
           return (
             <Ingredient
               key={`recipe-ingredient-${index}-${ingredient.name}`}
               ingredient={ingredient}
+              px={spacing.two}
+              pt={spacing.zer0}
+              pb='0.0625rem'
+              border='1px solid'
+              borderRadius={borderRadius.eight}
+              alignItems='flex-end' justifyContent='space-between'
             />
           );
         })}
-      </ul>
+      </Flexbox>
     </BoxUIContainer>
   );
 };

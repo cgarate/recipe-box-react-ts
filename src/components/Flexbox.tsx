@@ -1,6 +1,10 @@
 // import { borders, color, fontSize, space, width } from "styled-system";
 import * as React from "react";
 import {
+  alignItems,
+  flexDirection,
+  flexWrap,
+  justifyContent,
   space,
   width,
 } from 'styled-system';
@@ -17,9 +21,11 @@ const FlexboxComponent: React.SFC<Props & StyledSystemProps> = ({ className, chi
 }
 
 export const Flexbox = styled(FlexboxComponent)`
+  display: flex;
   ${space}
   ${width}
-  display: flex;
-  flex-wrap: wrap;
-
+  ${flexDirection}
+  ${flexWrap}
+  ${alignItems}
+  ${justifyContent}
 `
