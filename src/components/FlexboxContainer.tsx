@@ -20,7 +20,7 @@ const FlexboxComponent: React.SFC<Props & StyledSystemProps> = ({ className, chi
   return <div className={className ? className : ""}>{children}</div>
 }
 
-export const Flexbox = styled(FlexboxComponent)`
+export const FlexboxContainer = styled(FlexboxComponent)`
   display: flex;
   ${space}
   ${width}
@@ -29,3 +29,4 @@ export const Flexbox = styled(FlexboxComponent)`
   ${alignItems}
   ${justifyContent}
 `
+FlexboxComponent.displayName = "FlexboxContainer";

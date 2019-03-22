@@ -8,14 +8,14 @@ interface Props {
   className?: string,
 }
 
-const BoxUIContainerComponent: React.SFC<Props & StyledSystemProps> = ({ className, children }) => {
+const BoxComponent: React.SFC<Props & StyledSystemProps> = ({ className, children }) => {
   return <div className={className ? className : ""}>{children}</div>
 }
 
-export const BoxUIContainer = styled(BoxUIContainerComponent)`
+export const BoxUIContainer = styled(BoxComponent)`
   ${space}
   ${width}
   ${flexBasis}
   ${borders}
 `;
-BoxUIContainer.displayName = "BoxUIContainer";
+BoxComponent.displayName = "BoxContainer";

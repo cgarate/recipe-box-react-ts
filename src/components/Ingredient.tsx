@@ -4,6 +4,7 @@ import { IngredientType } from "../store/store.types";
 import styled from "../theme/index";
 import { StyledSystemProps } from "../theme/theme.types";
 import { BoxUIContainer } from "./BoxUIContainer";
+import { FlexboxElement } from './FlexboxElement';
 
 interface Props {
   ingredient: IngredientType;
@@ -14,10 +15,10 @@ export const IngredientComponent: React.SFC<Props & StyledSystemProps> = ({
   ingredient,
   className,
 }) => (
-  <BoxUIContainer className={className ? className : ""}>
-    <BoxUIContainer flexBasis='15%'>{ingredient.quantity}</BoxUIContainer>
-    <BoxUIContainer flexBasis='35%'>{ingredient.unit}</BoxUIContainer>
-    <BoxUIContainer flexBasis='50%' >{ingredient.name}</BoxUIContainer>
+  <BoxUIContainer className={className ? className : ""} >
+    <FlexboxElement flexBasis='15%'>{ingredient.quantity}</FlexboxElement>
+    <FlexboxElement flexBasis='35%'>{ingredient.unit}</FlexboxElement>
+    <FlexboxElement flexBasis='50%' >{ingredient.name}</FlexboxElement>
   </BoxUIContainer>
 );
 
@@ -30,3 +31,4 @@ export const Ingredient = styled(IngredientComponent)`
   ${borders}
   ${borderRadius}
 `;
+IngredientComponent.displayName = "Ingredient";

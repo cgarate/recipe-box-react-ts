@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { selectRecipeRecords } from "src/selectors/recipe.selector";
 import { AppStateType } from "src/store/recipeBox.reducers";
 import { RecipeType } from "src/store/store.types";
-import { Flexbox } from "./Flexbox";
+import { FlexboxContainer } from "./FlexboxContainer";
 import { RecipeCard } from "./RecipeCard";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 const Recipes = ({ recipeRecords }: Props) => {
   return (
-    <Flexbox p={2} flexWrap="wrap">
+    <FlexboxContainer p={2} flexWrap="wrap">
       {recipeRecords.map((recipe) => (
         <RecipeCard
           key={recipe.id}
@@ -20,7 +20,7 @@ const Recipes = ({ recipeRecords }: Props) => {
           border="1px solid #dddddd"
         />
       ))}
-    </Flexbox>
+    </FlexboxContainer>
   );
 };
 

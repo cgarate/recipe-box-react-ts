@@ -5,6 +5,7 @@ import styled from "../theme/index";
 import { StyledSystemProps } from "../theme/theme.types";
 import { BoxUIContainer } from "./BoxUIContainer";
 import IngredientList from "./IngredientList";
+import { InstructionsComponent } from './Instructions';
 
 interface Props {
   recipeData: RecipeType;
@@ -18,9 +19,8 @@ const RecipeCardComponent: React.SFC<Props & StyledSystemProps> = ({
   return (
     <BoxUIContainer className={className ? className : ""}>
       <h3>{recipeData.title}</h3>
-      <h4>List of Ingredients</h4>
       <IngredientList ingredients={recipeData.ingredients}  />
-      <h4>Instructions</h4>
+      <InstructionsComponent instructions={recipeData.instructions} />
     </BoxUIContainer>
   );
 };
@@ -31,3 +31,4 @@ export const RecipeCard = styled(RecipeCardComponent)`
   ${width}
   ${borders}
 `;
+RecipeCardComponent.displayName = "RecipeCard";

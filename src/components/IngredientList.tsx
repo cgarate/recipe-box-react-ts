@@ -1,9 +1,9 @@
 import * as React from "react";
 import { IngredientType } from "../store/store.types";
-import { borderRadius } from '../styles/border-radius/index';
-import { spacing } from '../styles/spacing/index';
+import { borderRadius } from "../styles/border-radius/index";
+import { spacing } from "../styles/spacing/index";
 import { BoxUIContainer } from "./BoxUIContainer";
-import { Flexbox } from './Flexbox';
+import { FlexboxContainer } from "./FlexboxContainer";
 import { Ingredient } from "./Ingredient";
 
 interface Props {
@@ -12,8 +12,9 @@ interface Props {
 
 const IngredientList = ({ ingredients }: Props) => {
   return (
-    <BoxUIContainer p={spacing.two} >
-      <Flexbox flexDirection='column' justifyContent='flex-start'>
+    <BoxUIContainer p={spacing.two}>
+      <h4>List of Ingredients</h4>
+      <FlexboxContainer flexDirection="column" justifyContent="flex-start">
         {ingredients.map((ingredient, index) => {
           return (
             <Ingredient
@@ -21,14 +22,15 @@ const IngredientList = ({ ingredients }: Props) => {
               ingredient={ingredient}
               px={spacing.two}
               pt={spacing.zer0}
-              pb='0.0625rem'
-              border='1px solid'
+              pb="0.0625rem"
+              border="1px solid"
               borderRadius={borderRadius.eight}
-              alignItems='flex-end' justifyContent='space-between'
+              alignItems="flex-end"
+              justifyContent="space-between"
             />
           );
         })}
-      </Flexbox>
+      </FlexboxContainer>
     </BoxUIContainer>
   );
 };
