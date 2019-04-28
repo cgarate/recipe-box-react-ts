@@ -1,11 +1,23 @@
 import * as React from "react";
 import { RecipeType } from "src/store/store.types";
-import { borders, color, space, width  } from "styled-system";
+import {
+  borders,
+  color,
+  height,
+  maxHeight,
+  maxWidth,
+  minHeight,
+  minWidth,
+  space,
+  width,
+} from "styled-system";
+import { FlexboxElement } from "../common/FlexboxElement";
+import { H3 } from "../common/Hn";
+import { spacing } from "../styles/spacing/index";
 import styled from "../theme/index";
 import { StyledSystemProps } from "../theme/theme.types";
-import { BoxUIContainer } from "./BoxUIContainer";
 import IngredientList from "./IngredientList";
-import { InstructionsComponent } from './Instructions';
+import { InstructionsComponent } from "./Instructions";
 
 interface Props {
   recipeData: RecipeType;
@@ -17,11 +29,11 @@ const RecipeCardComponent: React.SFC<Props & StyledSystemProps> = ({
   recipeData,
 }) => {
   return (
-    <BoxUIContainer className={className ? className : ""}>
-      <h3>{recipeData.title}</h3>
-      <IngredientList ingredients={recipeData.ingredients}  />
+    <FlexboxElement className={className ? className : ""}>
+      <H3 p={spacing.two} m="0">{recipeData.title}</H3>
+      <IngredientList ingredients={recipeData.ingredients} />
       <InstructionsComponent instructions={recipeData.instructions} />
-    </BoxUIContainer>
+    </FlexboxElement>
   );
 };
 
@@ -30,5 +42,10 @@ export const RecipeCard = styled(RecipeCardComponent)`
   ${space}
   ${width}
   ${borders}
+  ${maxWidth}
+  ${minWidth}
+  ${maxHeight}
+  ${minHeight}
+  ${height}
 `;
 RecipeCardComponent.displayName = "RecipeCard";

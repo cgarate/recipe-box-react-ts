@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BoxUIContainer } from "./BoxUIContainer";
+import { BoxUIContainer } from "../common/BoxUIContainer";
 
 interface Props {
   instructions: string;

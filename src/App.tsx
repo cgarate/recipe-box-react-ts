@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BoxUIContainer } from './components/BoxUIContainer';
+import { BoxUIContainer } from './common/BoxUIContainer';
 import { Header } from "./components/Header";
 import Recipes from './components/recipes';
 import { theme, ThemeProvider } from "./theme";
@@ -8,7 +8,7 @@ class App extends React.Component {
   public render() {
     return (
       <ThemeProvider theme={theme}>
-        <BoxUIContainer>
+        <BoxUIContainer >
           <Header />
           <Recipes />
         </BoxUIContainer>

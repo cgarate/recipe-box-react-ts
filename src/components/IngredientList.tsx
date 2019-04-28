@@ -1,9 +1,10 @@
 import * as React from "react";
+import { BoxUIContainer } from "../common/BoxUIContainer";
+import { FlexboxContainer } from "../common/FlexboxContainer";
+import { H4 } from "../common/Hn";
 import { IngredientType } from "../store/store.types";
 import { borderRadius } from "../styles/border-radius/index";
 import { spacing } from "../styles/spacing/index";
-import { BoxUIContainer } from "./BoxUIContainer";
-import { FlexboxContainer } from "./FlexboxContainer";
 import { Ingredient } from "./Ingredient";
 
 interface Props {
@@ -13,7 +14,7 @@ interface Props {
 const IngredientList = ({ ingredients }: Props) => {
   return (
     <BoxUIContainer p={spacing.two}>
-      <h4>List of Ingredients</h4>
+      <H4 m="0">List of Ingredients</H4>
       <FlexboxContainer flexDirection="column" justifyContent="flex-start">
         {ingredients.map((ingredient, index) => {
           return (
