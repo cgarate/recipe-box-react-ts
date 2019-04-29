@@ -30,7 +30,7 @@ const RecipeCardComponent: React.SFC<Props & StyledSystemProps> = ({
 }) => {
   return (
     <FlexboxElement className={className ? className : ""}>
-      <H3 p={spacing.two} m="0">{recipeData.title}</H3>
+      <H3 p={spacing.three} m="0">{recipeData.title}</H3>
       <IngredientList ingredients={recipeData.ingredients} />
       <InstructionsComponent instructions={recipeData.instructions} />
     </FlexboxElement>

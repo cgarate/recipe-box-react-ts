@@ -10,9 +10,9 @@ const createNewRecipe = (): RecipeType => {
   return {
     id: uID,
     ingredients: [],
-    instructions: "",
+    instructions: "Add Instructions",
     rating: null,
-    title: "",
+    title: "Add Title",
     visible: true,
   };
 };
@@ -21,7 +21,7 @@ const defaultState = [
   {
     id: "1",
     ingredients: [
-      {quantity: 3, unit: "pieces", name: "Tomatoes",},
+      {quantity: 3, unit: "", name: "Tomatoes",},
       {quantity: 100, unit: "grams", name: "Goat Cheese",},
       {quantity: 1, unit: "can", name: "Chipotle Peppers",},
       {quantity: 1, unit: "splash", name: "Olive Oil",},

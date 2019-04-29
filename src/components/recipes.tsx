@@ -19,6 +19,7 @@ const Recipes = ({ recipeRecords }: Props) => {
           recipeData={recipe}
           border="1px solid #dddddd"
           width="20rem"
+          minHeight="30rem"
           ml="1rem"
           mt="1rem"
         />
