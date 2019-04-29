@@ -4,6 +4,10 @@ export interface IngredientType {
   name: string;
 }
 
+export interface PayloadIDType {
+  id: string;
+}
+
 export interface PayloadIngredientType {
   id: string;
   ingredient: string;
@@ -20,5 +24,5 @@ export interface RecipeType {
 
 export interface ActionType {
   type: string;
-  payload?: PayloadIngredientType | {};
+  payload?: PayloadIngredientType | PayloadIDType;
 }

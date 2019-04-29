@@ -11,6 +11,7 @@ import {
   space,
   width,
 } from "styled-system";
+import { FlexboxContainer } from "../common/FlexboxContainer";
 import { FlexboxElement } from "../common/FlexboxElement";
 import { H3 } from "../common/Hn";
 import { spacing } from "../styles/spacing/index";
@@ -30,7 +31,11 @@ const RecipeCardComponent: React.SFC<Props & StyledSystemProps> = ({
 }) => {
   return (
     <FlexboxElement className={className ? className : ""}>
-      <H3 p={spacing.three} m="0">{recipeData.title}</H3>
+      <FlexboxContainer justifyContent="space-between" alignItems="center">
+        <H3 p={spacing.three} m="0">{recipeData.title}</H3>
+        <span>X</span>
+      </FlexboxContainer>
+      
       <IngredientList ingredients={recipeData.ingredients} />
       <InstructionsComponent instructions={recipeData.instructions} />
     </FlexboxElement>

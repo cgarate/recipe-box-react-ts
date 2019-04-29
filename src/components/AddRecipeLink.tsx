@@ -9,7 +9,7 @@ interface Props {
 };
 
 // tslint:disable: no-shadowed-variable
-const Link = ({ addRecipeBox, children }: Props) => {
+const AddRecipeLink = ({ addRecipeBox, children }: Props) => {
   return (
     <span>
       <a onClick={addRecipeBox}>{children}</a>
@@ -26,8 +26,8 @@ const Link = ({ addRecipeBox, children }: Props) => {
 // Commenting the code above and using the object form instead, leaving that as a future reference
 const mapDispatchToProps = {addRecipeBox}
 
-const LinkContainer = connect(
+const AddRecipeWrapper = connect(
   null,
   mapDispatchToProps,
-)(Link);
-export default LinkContainer;
+)(AddRecipeLink);
+export default AddRecipeWrapper;
