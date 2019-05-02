@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { addRecipeBox } from "../store/recipeBox.actions";
+import { addRecipeBox } from "src/store/recipes/actions";
 
 interface Props {
   addRecipeBox: () => void;

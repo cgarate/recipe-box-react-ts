@@ -1,8 +1,8 @@
 import * as _ from "lodash";
-import { combineReducers } from "redux";
 import * as uuid from "uuid";
-import { ADD_RECIPE_BOX, DELETE_RECIPE_BOX } from "./recipeBox.actions";
-import { ActionType, RecipeType } from "./store.types";
+import { ADD_RECIPE_BOX, DELETE_RECIPE_BOX } from './constants'
+import { RecipeActionTypes } from "./types";
+import { RecipeType } from "./types";
 
 const { v1 } = uuid;
 
@@ -26,11 +26,11 @@ const defaultStore = {
     {
       id: "1",
       ingredients: [
-        { quantity: 3, unit: "", name: "Tomatoes" },
-        { quantity: 100, unit: "grams", name: "Goat Cheese" },
-        { quantity: 1, unit: "can", name: "Chipotle Peppers" },
-        { quantity: 1, unit: "splash", name: "Olive Oil" },
-        { quantity: 1, unit: "box", name: "Canapé Crackers" },
+        { id: 'i1', quantity: 3, unit: "", name: "Tomatoes" },
+        { id: 'i2', quantity: 100, unit: "grams", name: "Goat Cheese" },
+        { id: 'i3', quantity: 1, unit: "can", name: "Chipotle Peppers" },
+        { id: 'i4', quantity: 1, unit: "splash", name: "Olive Oil" },
+        { id: 'i5', quantity: 1, unit: "box", name: "Canapé Crackers" },
       ],
       instructions:
         "Slice tomatoes. Mix the goat cheese with the chopped chipotle peppers. Arrange tomatoes on an oven dish, sprinkle olive oil on top, and put it all inside the oven at 375 F for 5 minutes. After 5 minutes, take the tomatoes out and add the goat cheese mix on top. Bake for 3 more minutes. Enjoy!",
@@ -40,17 +40,17 @@ const defaultStore = {
     },
   ],
   ui: {
-    editIngredient: {},
-    editInstructions: {},
-    editRecipeTitle: { id: null, status: false },
+    editRecipeIngredient: {id: null, idIngredient: null, status: false, },
+    editRecipeInstructions: { id: null, status: false, },
+    editRecipeTitle: { id: null, status: false, },
   },
 };
 
 // Notice the way we set the default value for the state. Using assertion in typescript to assign the type.
 // Syntax is: value 'as' type
-const recipes = (
+export const recipesReducer = (
   storeRecipes = defaultStore.recipes as RecipeType[],
-  action: ActionType,
+  action: RecipeActionTypes,
 ): RecipeType[] => {
   switch (action.type) {
     case ADD_RECIPE_BOX:
@@ -64,10 +64,3 @@ const recipes = (
   }
 };
 
-const rootReducer = combineReducers({
-  recipes,
-});
-
-export type AppStateType = ReturnType<typeof rootReducer>;
-
-export default rootReducer;

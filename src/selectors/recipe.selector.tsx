@@ -1,3 +1,3 @@
-import { AppStateType } from 'src/store/recipeBox.reducers';
+import { AppState } from 'src/store';
 
-export const selectRecipeRecords = (state: AppStateType) => state.recipes;
+export const selectRecipeRecords = (state: AppState) => state.recipes;

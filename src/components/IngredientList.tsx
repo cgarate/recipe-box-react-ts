@@ -2,12 +2,12 @@ import * as React from "react";
 import { BoxUIContainer } from "../common/BoxUIContainer";
 import { FlexboxContainer } from "../common/FlexboxContainer";
 import { H4 } from "../common/Hn";
-import { IngredientType } from "../store/store.types";
+import { TIngredient } from "../store/recipes/types";
 import { spacing } from "../styles/spacing/index";
 import { Ingredient } from "./Ingredient";
 
 interface Props {
-  ingredients: IngredientType[];
+  ingredients: TIngredient[];
 }
 
 const IngredientList = ({ ingredients }: Props) => {

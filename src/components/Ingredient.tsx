@@ -9,12 +9,12 @@ import {
 } from "styled-system";
 import { FlexboxContainer } from "../common/FlexboxContainer";
 import { FlexboxElement } from "../common/FlexboxElement";
-import { IngredientType } from "../store/store.types";
+import { TIngredient } from "../store/recipes/types";
 import styled from "../theme/index";
 import { StyledSystemProps } from "../theme/theme.types";
 
 interface Props {
-  ingredient: IngredientType;
+  ingredient: TIngredient;
   className?: string;
 }
 
